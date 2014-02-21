@@ -38,16 +38,16 @@ class FAQ (models.Model):
 class Requirement (models.Model):
     
     RAM_CHOICES = {
-        ('1', '1 GB'),
-        ('2', '2 GB'),
-        ('4', '4 GB'),
-        ('8', '8 GB'),
-        ('16', '16 GB')
+        ('1 GB', '1 GB'),
+        ('2 GB', '2 GB'),
+        ('4 GB', '4 GB'),
+        ('8 GB', '8 GB'),
+        ('16 GB', '16 GB')
     }
     
     processor = models.CharField(max_length=200)
     os = models.CharField(max_length=200, verbose_name='OS')
-    ram = models.IntegerField(verbose_name='RAM', max_length='2', choices=RAM_CHOICES, default='2')
+    ram = models.CharField(verbose_name='RAM', max_length='4', choices=RAM_CHOICES, default='2 GB')
     hard_disk = models.IntegerField(verbose_name='Hard Disk Space', max_length=4, help_text='Enter the number of GB of free space required for the product')
     network = models.TextField(verbose_name='Network Requirements', max_length=200)
     other = models.TextField(verbose_name='Special Considerations', max_length=200)
